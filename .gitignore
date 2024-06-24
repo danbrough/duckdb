@@ -352,3 +352,5 @@ extension_external
 .venv-pyodide
 
 *.log
+test/sql/pragma/output.json
+
