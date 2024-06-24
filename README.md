@@ -5,4 +5,3 @@ If you were after the official duckdb database repository then it's at [duckdb](
 
 Currently it's only building without extensions. See [build.sh](build.sh).
 
-## 
