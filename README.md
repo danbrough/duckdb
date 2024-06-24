@@ -11,6 +11,10 @@ Edit [android_env.sh](android_env.sh) and set `ANDROID_NDK=path to your android 
 install android studio and use the "SDK Manager" to install Android NDK version 26.3.11579264 if you 
 don't have it.
 
+Set the `ANDROID_ABI` to the android architecture you want to build for.
+eg: arm64-v8a.
+
+
 Run [build_android.sh](build_android.sh)
 
 
