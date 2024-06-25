@@ -354,3 +354,5 @@ extension_external
 *.log
 test/sql/pragma/output.json
 
+*.log
+android-ndk
