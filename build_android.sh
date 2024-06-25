@@ -8,6 +8,7 @@ if [ -z "$ANDROID_NDK" ]; then
   wget $URL && \
   unzip android-ndk-r26d-linux.zip && \
   mv android-ndk-r26d-linux android-ndk
+  ANDROID_NDK="$PWD/android-ndk"
 fi
 
 #ANDROID_ABI=arm64-v8a //or whatever
