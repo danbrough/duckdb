@@ -10,21 +10,18 @@ if [ -z "$ANDROID_NDK" ]; then
   mv android-ndk-r26d-linux android-ndk
 fi
 
-#ANDROID_ABI=arm64-v8a
+#ANDROID_ABI=arm64-v8a //or whatever
 ANDROID_ABI=x86_64
 ANDROID_PLATFORM=21
 
-# Note: Should use something like  DUCKDB_EXTENSIONS='tpch;json' SKIP_EXTENSIONS=parquet make
-
-export DUCKDB_EXTENSIONS="icu;parquet;json;jemalloc"
-
 
 PLATFORM_NAME="android_$ANDROID_ABI"
-BUILDDIR=./build/release
+BUILDDIR=./build/$PLATFORM_NAME
 mkdir -p $BUILDDIR && \
 cd $BUILDDIR && \
 cmake -G "Ninja" -DEXTENSION_STATIC_BUILD=1 \
 -DDUCKDB_EXTRA_LINK_FLAGS="-llog" \
+-DBUILD_EXTENSIONS=$DUCKDB_EXTENSIONS \
 -DENABLE_EXTENSION_AUTOLOADING=1 -DENABLE_EXTENSION_AUTOINSTALL=1 \
 -DCMAKE_VERBOSE_MAKEFILE=on \
 -DANDROID_PLATFORM=$ANDROID_PLATFORM \

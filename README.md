@@ -1,23 +1,16 @@
 # DuckDB Android
 
 This is a fork of the duckdb to play around with building it on android.
-If you were after the official duckdb database repository then it's at [duckdb](https://github.com/duckdb/duckdb).
-
-Currently it's only building without extensions. See [build_android.sh](build_android.sh).
-
-## Build Instructions
-
-Edit [android_env.sh](android_env.sh) and set `ANDROID_NDK=path to your android NDK` or 
-install android studio and use the "SDK Manager" to install Android NDK version 26.3.11579264 if you 
-don't have it. Set the `ANDROID_ABI` to the android architecture you want to build for.
-eg: arm64-v8a.
-
-
-Run [build_android.sh](build_android.sh)
-
-## Status
+Tuns out a "fork" was overkill but all you need is something like the [build_android.sh](./build_android.sh) script here.
 
 Working with built-in extensions parquet, icu, jemalloc, shell and json.
+Edit the [build_android.sh](./build_android.sh) script and run it and you should wind up with a statically linked binary
+at ./build/android_../duckdb and also a shared library you could use with the duckdb java library.
+
+
+
+
+
 
 
 
