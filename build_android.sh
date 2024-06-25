@@ -13,7 +13,7 @@ fi
 #ANDROID_ABI=arm64-v8a //or whatever
 ANDROID_ABI=x86_64
 ANDROID_PLATFORM=21
-
+DUCKDB_EXTENSIONS="icu;parquet;json;jemalloc"
 
 PLATFORM_NAME="android_$ANDROID_ABI"
 BUILDDIR=./build/$PLATFORM_NAME
