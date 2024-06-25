@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+ANDROID_ABI=arm64-v8a
+ANDROID_ABI=x86_64
+
+mkdir -p ./build/release && \
+cd build/release && \
+cmake -G "Ninja" -DFORCE_COLORED_OUTPUT=1 -DEXTENSION_STATIC_BUILD=1 \
+-DENABLE_EXTENSION_AUTOLOADING=1 -DENABLE_EXTENSION_AUTOINSTALL=1 \
+-DDUCKDB_EXTRA_LINK_FLAGS="-llog" \
+-DLOCAL_EXTENSION_REPO=""  -DOVERRIDE_GIT_DESCRIBE="" \
+-DDUCKDB_EXPLICIT_PLATFORM="android_$ANDROID_ABI" -DBUILD_UNITTESTS=0 -DBUILD_SHELL=1 \
+-DANDROID_ABI=$ANDROID_ABI -DCMAKE_TOOLCHAIN_FILE=./android-ndk/build/cmake/android.toolchain.cmake \
+-DCMAKE_BUILD_TYPE=Release ../.. && \
+cmake --build . --config Release
