@@ -11,10 +11,15 @@ if [ -z "$ANDROID_NDK" ]; then
   ANDROID_NDK="$PWD/android-ndk"
 fi
 
-#ANDROID_ABI=arm64-v8a //or whatever
-ANDROID_ABI=x86_64
-ANDROID_PLATFORM=21
-DUCKDB_EXTENSIONS="icu;parquet;json;jemalloc"
+#ANDROID_ABI=arm64-v8a 
+#ANDROID_ABI=x86_64
+ANDROID_ABI=armeabi-v7a
+
+
+ANDROID_PLATFORM=24
+DUCKDB_EXTENSIONS="icu;json;parquet"
+#DISABLE_PARQUET=1
+#DUCKDB_EXTENSIONS="icu;parquet;json;jemalloc"
 
 PLATFORM_NAME="android_$ANDROID_ABI"
 BUILDDIR=./build/$PLATFORM_NAME
@@ -31,4 +36,3 @@ cmake -G "Ninja" -DEXTENSION_STATIC_BUILD=1 \
 -DANDROID_ABI=$ANDROID_ABI -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
 -DCMAKE_BUILD_TYPE=Release ../.. && \
 cmake --build . --config Release
-
